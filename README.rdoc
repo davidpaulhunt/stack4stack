@@ -1,28 +1,38 @@
-== README
+== About Us
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Stack4Stack is a job matching service which shifts the focus from numericality to quality. How do we do this? First, our matching is done via machine learning and some cool math to compare job postings to candidates, but that's not our special sauce: we used Stacks for our comparison. 
 
-Things you may want to cover:
+Users tell us what technologies they use, then we convert that into number form. From there, random sampling and clusters lead us to sorted, very targeted connections. Next, employers can judge a candidate's qualifications based on the quality of their work (while having faith that our matching performed as advertised).
 
-* Ruby version
+=== Our Stack
 
-* System dependencies
+* Ruby
 
-* Configuration
+* Rails
 
-* Database creation
+* HTML/HAML/ERB
 
-* Database initialization
+* Coffeescript
 
-* How to run the test suite
+* Postgresql
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ninefold
 
-* Deployment instructions
+=== Testing
 
-* ...
+RSpec & FactoryGirl
 
+We start by testing our models and flushing out their functionality. This leads to a more robust backend application once we begin controller, feature, and views testing.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Contributions
+
+Current Contributors:
+
+David Hunt
+Jeremy Samples
+
+If you're interested in helping out, please give us a shout first, here or on Twitter @developgrr.
+
+=== License
+
+You're welcome to browse and tinker but only for non-commercial, private use. :)
