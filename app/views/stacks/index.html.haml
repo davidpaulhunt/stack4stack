@@ -1,0 +1,17 @@
+%h1 Listing stacks
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @stacks.each do |stack|
+    %tr
+      %td= link_to 'Show', stack
+      %td= link_to 'Edit', edit_stack_path(stack)
+      %td= link_to 'Destroy', stack, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stack', new_stack_path

@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Company:
+  = @job_post.company_id
+
+= link_to 'Edit', edit_job_post_path(@job_post)
+\|
+= link_to 'Back', job_posts_path

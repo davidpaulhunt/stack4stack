@@ -1,0 +1,19 @@
+%h1 Listing job_posts
+
+%table
+  %tr
+    %th Company
+    %th
+    %th
+    %th
+
+  - @job_posts.each do |job_post|
+    %tr
+      %td= job_post.company_id
+      %td= link_to 'Show', job_post
+      %td= link_to 'Edit', edit_job_post_path(job_post)
+      %td= link_to 'Destroy', job_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Job post', new_job_post_path
