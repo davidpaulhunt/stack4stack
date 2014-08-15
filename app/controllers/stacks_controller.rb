@@ -15,6 +15,7 @@ class StacksController < ApplicationController
   # GET /stacks/new
   def new
     @stack = Stack.new
+    @stack.stack_items.build
   end
 
   # GET /stacks/1/edit
@@ -69,6 +70,6 @@ class StacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stack_params
-      params[:stack]
+      params.require(:stack).permit(:stackable_id, :stackable_type, :stack_items_attributes => [:id, :technology_id])
     end
 end

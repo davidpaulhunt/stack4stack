@@ -21,6 +21,8 @@ module User
 
     # associations
     has_one :stack, as: :stackable, dependent: :destroy
+
+    delegate :get_tech, to: :stack
   end
 
 end

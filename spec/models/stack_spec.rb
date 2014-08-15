@@ -8,7 +8,7 @@ RSpec.describe Stack, :type => :model do
     let(:stack) { stackable.build_stack }
 
     it 'should be valid' do
-      assert stack.valid?
+      assert_equal true, stack.valid?
     end
 
     it 'should belong to stackable' do
@@ -19,23 +19,13 @@ RSpec.describe Stack, :type => :model do
       assert_equal "Company", stack.stackable_type
     end
 
-    it 'should print technologies on stack' do
-      stackable.save!
-      stack = stackable.create_stack
-      assert 1, Stack.all.count
-
-      si1 = stack.stack_items.create
-      si1.create_technology(name: "ruby")
-
-      si2 = stack.stack_items.create
-      si2.create_technology(name: "rails")
-      
-      assert 2, stack.stack_items.count
-      assert 2, StackItem.all.count
-
-      assert 2, stack.technologies.count
-
-      assert ["ruby", "rails"], stack
+    it 'should build stack items' do
+      tech = Technology.create!(name: 'ruby')
+      stack1 = stack
+      stack1.stack_items.build(technology_id: tech.id)
+      stack1.save!
+      expect(Stack.last.stack_items.count).not_to eq 0
+      expect(Stack.last.stack_items.first.stack_id).to eq stack1.id
     end
 
   end
@@ -47,12 +37,12 @@ RSpec.describe Stack, :type => :model do
 
     it 'has no stackable_id' do
       stack.stackable_id = nil
-      assert stack.invalid?
+      assert_equal true, stack.invalid?
     end
 
     it 'has no stackable_type' do
       stack.stackable_type = nil
-      assert stack.invalid?
+      assert_equal true, stack.invalid?
     end
 
   end

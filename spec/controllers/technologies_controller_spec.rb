@@ -24,7 +24,7 @@ RSpec.describe TechnologiesController, :type => :controller do
   # Technology. As you add validations to Technology, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:technology)
   }
 
   let(:invalid_attributes) {

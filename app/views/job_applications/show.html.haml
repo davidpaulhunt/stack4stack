@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Jobseeker:
+  = @job_application.jobseeker_id
+%p
+  %b Job post:
+  = @job_application.job_post_id
+
+= link_to 'Edit', edit_job_application_path(@job_application)
+\|
+= link_to 'Back', job_applications_path
