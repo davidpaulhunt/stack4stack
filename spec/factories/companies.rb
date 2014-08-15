@@ -7,4 +7,11 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
   end
+
+  factory :company_temporary, parent: :company, class: Company do
+    name "my other company"
+    email "anotherco@email.com"
+    password "password"
+    password_confirmation "password"
+  end
 end

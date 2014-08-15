@@ -4,10 +4,9 @@ class Stack < ActiveRecord::Base
   has_many :stack_items, dependent: :destroy
   has_many :technologies, through: :stack_items
 
-  validates_presence_of :stackable_id
-  validates_presence_of :stackable_type
+  validates_presence_of :stackable_id, :stackable_type
 
-  def to_s
+  def get_tech
     self.technologies.pluck(:name)
   end
 
