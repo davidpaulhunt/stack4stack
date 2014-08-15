@@ -19,6 +19,15 @@ RSpec.describe Stack, :type => :model do
       assert_equal "Company", stack.stackable_type
     end
 
+    it 'should build stack items' do
+      tech = Technology.create!(name: 'ruby')
+      stack1 = stack
+      stack1.stack_items.build(technology_id: tech.id)
+      stack1.save!
+      expect(Stack.last.stack_items.count).not_to eq 0
+      expect(Stack.last.stack_items.first.stack_id).to eq stack1.id
+    end
+
   end
 
   context 'invalid' do

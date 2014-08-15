@@ -24,7 +24,7 @@ RSpec.describe CompaniesController, :type => :controller do
   # Company. As you add validations to Company, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:company)
   }
 
   let(:invalid_attributes) {
